@@ -1,13 +1,10 @@
 ---
 name: rio
 
+
 on:
   pull_request:
   push:
-    branches:
-    - main
-    tags:
-    - '*'
 
 
 #
