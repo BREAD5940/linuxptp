@@ -33,7 +33,7 @@ jobs:
     - name: build
       shell: bash
       run: |
-        CROSS_COMPILE=arm-frc2024-linux-gnueabi-g++ make
+        CROSS_COMPILE=arm-frc2024-linux-gnueabi- make
 
     - uses: actions/upload-artifact@v3
       with:
