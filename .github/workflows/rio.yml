@@ -33,6 +33,7 @@ jobs:
     - name: build
       shell: bash
       run: |
+        export PATH=/usr/local/bin/arm-frc2024-linux-gnueabi-g++/bin:$PATH
         make
 
     - uses: actions/upload-artifact@v3
