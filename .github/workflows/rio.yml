@@ -34,6 +34,7 @@ jobs:
       shell: bash
       run: |
         export PATH=/usr/local/bin/arm-frc2024-linux-gnueabi-g++/bin:$PATH
+        alias gcc="/usr/local/bin/arm-frc2024-linux-gnueabi-g++"
         make
 
     - uses: actions/upload-artifact@v3
