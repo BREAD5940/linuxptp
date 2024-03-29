@@ -1,0 +1,44 @@
+---
+name: rio
+
+on:
+  pull_request:
+  push:
+    branches:
+    - main
+    tags:
+    - '*'
+
+
+#
+# Build native wheels
+#
+#
+# Build roboRIO/raspbian wheels
+#
+jobs:
+  riobuild:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        os:
+        - container: wpilib/roborio-cross-ubuntu:2024-22.04-py312
+          name: roborio
+
+    container:
+        image: "${{ matrix.os.container }}"
+
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+
+    - name: build
+      shell: bash
+      run: |
+        make
+
+    - uses: actions/upload-artifact@v3
+      with:
+        name: dist-${{ matrix.os.name }}
+        path: .
